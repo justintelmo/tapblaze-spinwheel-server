@@ -9,6 +9,7 @@ class WheelItemFactory extends Factory
 {
 
     protected $model = WheelItem::class;
+
     /**
      * Define the model's default state.
      *
@@ -16,11 +17,11 @@ class WheelItemFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->randomElement(["gems", "heart", "hammer", "brush", "coins"]);
+        $itemType = $this->faker->numberBetween(1, 5);
         $value = $this->faker->numberBetween(1, 750);
         $weight = $this->faker->numberBetween(5, 20);
         return [
-            "name" => $name,
+            "item_type" => $itemType,
             "value" => $value,
             "weight" => $weight
         ];

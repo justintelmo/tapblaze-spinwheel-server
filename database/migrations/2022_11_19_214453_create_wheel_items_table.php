@@ -15,7 +15,7 @@ class CreateWheelItemsTable extends Migration
     {
         Schema::create('wheel_items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('item_type');
             $table->integer('value');
             $table->integer('weight');
             $table->timestamps();
