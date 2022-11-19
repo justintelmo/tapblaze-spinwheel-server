@@ -15,7 +15,7 @@ class WheelItemController extends Controller
      */
     public function index()
     {
-        //
+        return WheelItem::all();
     }
 
     /**
