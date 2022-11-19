@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class WheelItem extends Model
 {
     use HasFactory;
+
+    public function index()
+    {
+        return self::all();
+    }
 }
