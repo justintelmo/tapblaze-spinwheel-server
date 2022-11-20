@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Spins;
 use App\Models\WheelItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::resource('spins', Spins::class);
 Route::resource('wheel_items', WheelItem::class);

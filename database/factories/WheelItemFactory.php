@@ -17,13 +17,10 @@ class WheelItemFactory extends Factory
      */
     public function definition()
     {
-        $itemType = $this->faker->numberBetween(1, 5);
-        $value = $this->faker->numberBetween(1, 750);
-        $weight = $this->faker->numberBetween(5, 20);
         return [
-            "item_type" => $itemType,
-            "value" => $value,
-            "weight" => $weight
+            "item_type" => $this->faker->numberBetween(1, 5),
+            "value" => $this->faker->numberBetween(1, 750),
+            "weight" => $this->faker->numberBetween(5, 20)
         ];
     }
 }

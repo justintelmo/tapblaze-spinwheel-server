@@ -83,4 +83,9 @@ class WheelItemController extends Controller
     {
         //
     }
+
+    public function spin()
+    {
+        
+    }
 }
