@@ -11,9 +11,14 @@ class Spins extends Model
 
     protected $table = "Spins";
     protected $fillable = ["result"];
-    
+
     public function index()
     {
         return self::all();
+    }
+
+    public function store()
+    {
+        return self::store();
     }
 }

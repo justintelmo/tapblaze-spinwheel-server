@@ -9,6 +9,5 @@ interface SpinsRepositoryInterface
     public function deleteSpin($spinId);
     public function createSpin(array $spinResult);
     public function updateSpin($spinId, array $spinResult);
-
     public function getSpinById($spinId);
 }
