@@ -12,10 +12,11 @@ class SpinsService
         $wheelItems = WheelItem::all();
         $weights = [];
         $totalWeight = 0;
+
         foreach ($wheelItems as $wheelItem)
         {
-            $weights[$wheelItem->item_type] = $wheelItem->weight;
-            $totalWeight += $wheelItem->weight;
+            $weights[$wheelItem->getAttribute("id")] = $wheelItem->getAttribute("weight");
+            $totalWeight += $wheelItem->getAttribute("weight");
         }
 
         $spinValue = mt_rand(1, $totalWeight);
@@ -24,6 +25,7 @@ class SpinsService
             $spinValue -= $weight;
             if ($spinValue <= 0) {
                 $spinResult = $itemType;
+                break;
             }
         }
 

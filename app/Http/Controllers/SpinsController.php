@@ -39,7 +39,7 @@ class SpinsController extends Controller
      */
     public function create()
     {
-        //
+        return response();
     }
 
     /**
@@ -82,7 +82,7 @@ class SpinsController extends Controller
      */
     public function edit(Spins $spins)
     {
-        //
+        return response();
     }
 
     /**

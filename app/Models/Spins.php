@@ -16,9 +16,4 @@ class Spins extends Model
     {
         return self::all();
     }
-
-    public function store()
-    {
-        return self::store();
-    }
 }

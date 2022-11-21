@@ -18,7 +18,7 @@ class SpinsPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class SpinsPolicy
      */
     public function view(User $user, Spins $spins)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class SpinsPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class SpinsPolicy
      */
     public function update(User $user, Spins $spins)
     {
-        //
+        return true;
     }
 
     /**
