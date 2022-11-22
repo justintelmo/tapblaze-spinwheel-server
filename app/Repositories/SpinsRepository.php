@@ -25,11 +25,15 @@ class SpinsRepository implements SpinsRepositoryInterface
     public function createSpin(array $spinResults)
     {
         $data = [];
+        
+
         foreach ($spinResults as $spinResult)
         {
             $data[] = ["result" => $spinResult];
         }
-        return Spins::insert($data);
+        Spins::insert($data);
+        file_put_contents("php://stderr", print_r($data, true));
+        return $data;
     }
 
     public function updateSpin($spinId, array $spinResult)

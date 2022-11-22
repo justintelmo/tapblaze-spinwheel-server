@@ -50,19 +50,20 @@ class SpinsController extends Controller
      */
     public function store(StoreSpinsRequest $request)
     {
-        $numSpins = $request->route('spins');
+        $numSpins = 1;
 
-        if (!$numSpins)
-        {
-            $numSpins = 1;
+        if ($request->has('spins')) {
+            $numSpins = $request->spins;
         }
+
+        file_put_contents("php://stderr", print_r($request->spins, true));
 
         // Will break single spins for now due to data change
         $wheelResult = $this->spinsService->spinWheel($numSpins);
 
         return response()->json(
             [
-                "data" => $this->spinsRepository->createSpin(['result' => $wheelResult])
+                "data" => $this->spinsRepository->createSpin($wheelResult)
             ]
         );
     }
