@@ -6,11 +6,13 @@ use App\Models\WheelItem;
 
 class SpinsService
 {
-    public function spinWheel()
+    public function spinWheel($spins = 1)
     {
+
         // If this scales, we need to find a better way to limit
         $wheelItems = WheelItem::all();
         $weights = [];
+        $spinResults = [];
         $totalWeight = 0;
 
         foreach ($wheelItems as $wheelItem)
@@ -18,17 +20,19 @@ class SpinsService
             $weights[$wheelItem->getAttribute("id")] = $wheelItem->getAttribute("weight");
             $totalWeight += $wheelItem->getAttribute("weight");
         }
-
-        $spinValue = mt_rand(1, $totalWeight);
-        $spinResult = -1;
-        foreach ($weights as $itemType => $weight) {
-            $spinValue -= $weight;
-            if ($spinValue <= 0) {
-                $spinResult = $itemType;
-                break;
+        
+        for ($i = 0; $i < $spins; $i++) {
+            $spinValue = mt_rand(1, $totalWeight);
+            foreach ($weights as $itemType => $weight) {
+                $spinValue -= $weight;
+                if ($spinValue <= 0) {
+                    $spinResults[] = $itemType;
+                    break;
+                }
             }
         }
 
-        return $spinResult;
+
+        return $spinResults;
     }
 }
