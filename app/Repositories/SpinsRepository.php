@@ -22,9 +22,14 @@ class SpinsRepository implements SpinsRepositoryInterface
         Spins::destroy($spinId);
     }
 
-    public function createSpin(array $spinResult)
+    public function createSpin(array $spinResults)
     {
-        return Spins::create($spinResult);
+        $data = [];
+        foreach ($spinResults as $spinResult)
+        {
+            $data[] = ["result" => $spinResult];
+        }
+        return Spins::insert($data);
     }
 
     public function updateSpin($spinId, array $spinResult)
