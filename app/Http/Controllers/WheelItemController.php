@@ -100,7 +100,6 @@ class WheelItemController extends Controller
         $spins = Spins::orderBy('created_at', 'desc');
         $spins = $spins->take(10)->get();
 
-        file_put_contents("php://stderr", print_r($spins, true));
         return view('weights', ['spins' => $spins, 'items' => WheelItem::all()]);
     }
 }

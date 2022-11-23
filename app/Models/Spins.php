@@ -9,6 +9,7 @@ class Spins extends Model
 {
     use HasFactory;
 
+    public $timestamps = true;
     protected $table = "spins";
     protected $fillable = ["result"];
 

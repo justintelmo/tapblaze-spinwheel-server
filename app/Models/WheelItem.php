@@ -11,6 +11,8 @@ class WheelItem extends Model
 
     protected $table = "wheel_items";
 
+    public $timestamps = true;
+
     public function index()
     {
         return self::all();
