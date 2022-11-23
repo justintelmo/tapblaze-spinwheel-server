@@ -28,8 +28,12 @@ class SpinsRepository implements SpinsRepositoryInterface
         $data = [];
         $now = Carbon::now('America/Los_Angeles')->toDateTimeString();
         $lastKnownId = Spins::latest()->first();
-        $lastKnownId = $lastKnownId['id'];
-
+        if ($lastKnownId) {
+            $lastKnownId = $lastKnownId['id'];
+        } else {
+            $lastKnownId = -1;
+        }
+        
         file_put_contents("php://stderr", "Last known id is $lastKnownId\n");
 
         foreach ($spinResults as $spinResult)
