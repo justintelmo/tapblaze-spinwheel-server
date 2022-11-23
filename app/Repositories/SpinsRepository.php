@@ -29,8 +29,7 @@ class SpinsRepository implements SpinsRepositoryInterface
         {
             $data[] = ["result" => $spinResult];
         }
-        Spins::insert($data);
-        file_put_contents("php://stderr", print_r($data, true));
+        Spins::create($data);
         return $data;
     }
 
