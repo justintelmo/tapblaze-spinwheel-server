@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WheelItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/spins', function() {
+    return view('spins');
+});
+
+Route::get('/weights', function() {
+    return WheelItemController::showWeights();
 });

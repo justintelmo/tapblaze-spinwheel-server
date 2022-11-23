@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\WheelItem;
 use App\Http\Requests\StoreWheelItemRequest;
 use App\Http\Requests\UpdateWheelItemRequest;
+use App\Models\Spins;
 
 class WheelItemController extends Controller
 {
@@ -32,11 +33,16 @@ class WheelItemController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreWheelItemRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
      */
     public function store(StoreWheelItemRequest $request)
     {
-        //
+        file_put_contents("php://stderr", print_r($request->all(), true)); 
+        foreach ($request->data as $updateModel) {
+            WheelItem::where('id', $updateModel['id'])->update(['weight' => $updateModel['weight']]);
+        }
+        // WheelItem::upsert($request->data, ['id'], ['weight']);
+        return response()->json(WheelItem::all());
     }
 
     /**
@@ -86,6 +92,15 @@ class WheelItemController extends Controller
 
     public function spin()
     {
-        
+
+    }
+
+    public static function showWeights()
+    {
+        $spins = Spins::orderBy('created_at', 'desc');
+        $spins = $spins->take(10)->get();
+
+        file_put_contents("php://stderr", print_r($spins, true));
+        return view('weights', ['spins' => $spins, 'items' => WheelItem::all()]);
     }
 }

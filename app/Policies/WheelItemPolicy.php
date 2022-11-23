@@ -18,7 +18,7 @@ class WheelItemPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class WheelItemPolicy
      */
     public function view(User $user, WheelItem $wheelItem)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class WheelItemPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class WheelItemPolicy
      */
     public function update(User $user, WheelItem $wheelItem)
     {
-        //
+        return true;
     }
 
     /**
@@ -65,7 +65,7 @@ class WheelItemPolicy
      */
     public function delete(User $user, WheelItem $wheelItem)
     {
-        //
+        return false;
     }
 
     /**
@@ -77,7 +77,7 @@ class WheelItemPolicy
      */
     public function restore(User $user, WheelItem $wheelItem)
     {
-        //
+        return true;
     }
 
     /**
@@ -89,6 +89,6 @@ class WheelItemPolicy
      */
     public function forceDelete(User $user, WheelItem $wheelItem)
     {
-        //
+        return false;
     }
 }

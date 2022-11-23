@@ -9,6 +9,8 @@ class WheelItem extends Model
 {
     use HasFactory;
 
+    protected $table = "wheel_items";
+
     public function index()
     {
         return self::all();
