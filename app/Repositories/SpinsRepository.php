@@ -26,12 +26,12 @@ class SpinsRepository implements SpinsRepositoryInterface
     public function createSpin(array $spinResults)
     {
         $data = [];
-        $now = Carbon::now('utc-8')->toDateTimeString();
+        $now = Carbon::now('America/Los_Angeles')->toDateTimeString();
         $lastKnownId = Spins::latest()->first();
         $lastKnownId = $lastKnownId['id'];
 
         file_put_contents("php://stderr", "Last known id is $lastKnownId\n");
-        
+
         foreach ($spinResults as $spinResult)
         {
             $data[] = [
