@@ -56,9 +56,6 @@ class SpinsController extends Controller
             $numSpins = $request->spins;
         }
 
-        file_put_contents("php://stderr", print_r($request->spins, true));
-
-        // Will break single spins for now due to data change
         $wheelResult = $this->spinsService->spinWheel($numSpins);
 
         return response()->json(

@@ -25,8 +25,6 @@ class SpinsRepository implements SpinsRepositoryInterface
     public function createSpin(array $spinResults)
     {
         $data = [];
-        
-
         foreach ($spinResults as $spinResult)
         {
             $data[] = ["result" => $spinResult];

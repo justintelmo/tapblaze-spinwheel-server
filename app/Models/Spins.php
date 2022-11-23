@@ -9,7 +9,7 @@ class Spins extends Model
 {
     use HasFactory;
 
-    protected $table = "Spins";
+    protected $table = "spins";
     protected $fillable = ["result"];
 
     public function index()
