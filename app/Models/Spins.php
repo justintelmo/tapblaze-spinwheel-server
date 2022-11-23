@@ -8,11 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Spins extends Model
 {
     use HasFactory;
-
-    public $timestamps = true;
     protected $table = "spins";
-    protected $fillable = ["id", "result", "created_at", "updated_at"];
 
+    protected $fillable = ['result'];
     public function index()
     {
         return self::all();

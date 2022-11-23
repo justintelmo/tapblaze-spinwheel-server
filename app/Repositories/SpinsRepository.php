@@ -28,7 +28,8 @@ class SpinsRepository implements SpinsRepositoryInterface
         $data = [];
         $now = Carbon::now('America/Los_Angeles')->toDateTimeString();
 
-        foreach ($spinResults as $spinResult)
+        file_put_contents("php://stderr", print_r($spinResults, true));
+        foreach ($spinResults as $id => $spinResult)
         {
             $data[] = [
                 "result" => $spinResult,
@@ -36,7 +37,7 @@ class SpinsRepository implements SpinsRepositoryInterface
                 "updated_at" => $now
             ];
         }
-        Spins::create($data);
+        Spins::insert($data);
         return $data;
     }
 

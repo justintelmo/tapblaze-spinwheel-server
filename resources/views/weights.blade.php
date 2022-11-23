@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <p>View / Edit Weights</p>
     <form>
         @csrf
-        <table>
+        <table class="styled-table">
             <thead>
                 <tr>
                     <th><label for="id">ID</label></th>
@@ -25,8 +27,8 @@
         <button type="Submit" id="update-weights-btn">Save</button>
     </form>
 
-    <b>Last 10 Spins</b>
-    <table>
+    <p>Last 10 Spins</p>
+    <table class="styled-table">
         <thead>
             <tr>
                 <th><label for="id">ID</label></th>
