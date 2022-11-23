@@ -11,7 +11,7 @@ class Spins extends Model
 
     public $timestamps = true;
     protected $table = "spins";
-    protected $fillable = ["result"];
+    protected $fillable = ["id", "created_at", "updated_at"];
 
     public function index()
     {

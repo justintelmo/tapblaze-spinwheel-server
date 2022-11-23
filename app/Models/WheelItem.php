@@ -11,6 +11,8 @@ class WheelItem extends Model
 
     protected $table = "wheel_items";
 
+    protected $fillable = ['created_at', 'updated_at'];
+
     public $timestamps = true;
 
     public function index()
