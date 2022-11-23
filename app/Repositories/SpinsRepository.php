@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\SpinsRepositoryInterface;
 use App\Models\Spins;
+use Carbon\Carbon;
 
 class SpinsRepository implements SpinsRepositoryInterface
 {
@@ -25,9 +26,19 @@ class SpinsRepository implements SpinsRepositoryInterface
     public function createSpin(array $spinResults)
     {
         $data = [];
+        $now = Carbon::now('utc-8')->toDateTimeString();
+        $lastKnownId = Spins::latest()->first();
+        $lastKnownId = $lastKnownId['id'];
+
+        file_put_contents("php://stderr", "Last known id is $lastKnownId\n");
+        
         foreach ($spinResults as $spinResult)
         {
-            $data[] = ["result" => $spinResult];
+            $data[] = [
+                "result" => $spinResult,
+                "created_at" => $now,
+                "updated_at" => $now
+            ];
         }
         Spins::create($data);
         return $data;
