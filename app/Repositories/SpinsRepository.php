@@ -35,6 +35,7 @@ class SpinsRepository implements SpinsRepositoryInterface
         foreach ($spinResults as $spinResult)
         {
             $data[] = [
+                "id" => ++$lastKnownId,
                 "result" => $spinResult,
                 "created_at" => $now,
                 "updated_at" => $now
